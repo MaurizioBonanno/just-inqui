@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+     Utenti
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+
+
+        
+        <ngx-datatable class="fullscreen material"
+             [rowHeight]="100"
+             [rows]="usersList" 
+             [columnMode]="'force'" 
+             [sortType]="'multi'" 
+             [reorderable]="false">
+          <ngx-datatable-column name="photoURL">
+            <ng-template ngx-datatable-header-template resizeable dragging>
+              Avatar
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <ion-img class="user-avatar" src="{{row.photoURL}}"></ion-img> 
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="DisplayName">
+            <ng-template ngx-datatable-header-template resizeable="true">
+              Nome
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="email"></ngx-datatable-column>
+          <ngx-datatable-column name="id">
+            <ng-template ngx-datatable-header-template>
+              Action
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <ion-button size="small" outline color="primary" (click)="openDetailsPage(row)">Details</ion-button>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+        
+   
+
+  </ion-grid>
+
+  <!--Data Table-->
+
+
+</ion-content>
